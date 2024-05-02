@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  client:
+    container_name: vue-client
+    image: vue-client:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    stdin_open: true
+    ports:
+      - '8080:8080'
+    networks:
+      - vue-app
+
+networks:
+  vue-app:
+    driver: bridge
